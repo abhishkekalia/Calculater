@@ -6,30 +6,19 @@ else:
     # Python 3
     import tkinter as tk
 
-def startgame():
-    pass
+class Sandwhich(tk.Tk):
+    def __init__(self):
+        tk.Tk.__init__(self)
+        self.entry = tk.Entry(self)
+        self.button = tk.Button(self, text="Submit", command=self.on_button)
+        self.button.pack()
+        self.entry.pack()
 
-root = tk.Tk()
+    def on_button(self):
+        print(self.entry.get())
 
-root.option_add("*Button.Background", "black")
-root.option_add("*Button.Foreground", "red")
-
-root.title('Amazing Calculator')
-root.geometry("500x500")
-root.resizable(0, 0)
-
-back = tk.Frame(master=root,bg='white')
-back.pack_propagate(0)
-back.pack(fill=tk.BOTH, expand=1)
-
-go = tk.Button(master=back, text='Start Game', command=startgame)
-go.pack()
-close = tk.Button(master=back, text='Quit', command=root.destroy)
-close.pack()
-info = tk.Label(master=back, text='Made by me!', bg='#009933', fg='black')
-info.pack()
-
-root.mainloop()
+app = Sandwhich()
+app.mainloop()
 
 # root.title("Sandwich")
 # tk.Button(root, text="hello abhsihek kalia").pack()
